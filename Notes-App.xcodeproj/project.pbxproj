@@ -13,6 +13,7 @@
 		C49CF0802620F2F10054070A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C49CF07E2620F2F10054070A /* Main.storyboard */; };
 		C49CF0822620F2F20054070A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49CF0812620F2F20054070A /* Assets.xcassets */; };
 		C49CF0852620F2F20054070A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C49CF0832620F2F20054070A /* LaunchScreen.storyboard */; };
+		C49CF08E2620F5E80054070A /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49CF08D2620F5E80054070A /* AddNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C49CF0812620F2F20054070A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C49CF0842620F2F20054070A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C49CF0862620F2F20054070A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C49CF08D2620F5E80054070A /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				C49CF0782620F2F10054070A /* AppDelegate.swift */,
 				C49CF07A2620F2F10054070A /* SceneDelegate.swift */,
 				C49CF07C2620F2F10054070A /* ViewController.swift */,
+				C49CF08D2620F5E80054070A /* AddNoteViewController.swift */,
 				C49CF07E2620F2F10054070A /* Main.storyboard */,
 				C49CF0812620F2F20054070A /* Assets.xcassets */,
 				C49CF0832620F2F20054070A /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C49CF08E2620F5E80054070A /* AddNoteViewController.swift in Sources */,
 				C49CF07D2620F2F10054070A /* ViewController.swift in Sources */,
 				C49CF0792620F2F10054070A /* AppDelegate.swift in Sources */,
 				C49CF07B2620F2F10054070A /* SceneDelegate.swift in Sources */,
