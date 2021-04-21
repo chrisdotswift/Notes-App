@@ -20,13 +20,50 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bpo-Be-Pj6">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PrototypeCell" rowHeight="119" id="bpo-Be-Pj6" customClass="NotesCellStack" customModule="Notes_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bpo-Be-Pj6" id="cxL-PZ-xGe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="awu-lO-8j1">
+                                                    <rect key="frame" x="16" y="11" width="343" height="97"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VW-ZX-Xkk">
+                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="32.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wug-j0-3tU">
+                                                            <rect key="frame" x="0.0" y="32.5" width="343" height="32"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvV-Ba-Bbe">
+                                                            <rect key="frame" x="0.0" y="64.5" width="343" height="32.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="awu-lO-8j1" secondAttribute="trailing" id="4Gd-FF-WV0"/>
+                                                <constraint firstItem="awu-lO-8j1" firstAttribute="leading" secondItem="cxL-PZ-xGe" secondAttribute="leadingMargin" id="RrC-KF-vRj"/>
+                                                <constraint firstItem="awu-lO-8j1" firstAttribute="bottom" secondItem="cxL-PZ-xGe" secondAttribute="bottomMargin" id="SqD-XS-zmB"/>
+                                                <constraint firstItem="awu-lO-8j1" firstAttribute="top" secondItem="cxL-PZ-xGe" secondAttribute="topMargin" id="nWy-W9-n2M"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="date" destination="rvV-Ba-Bbe" id="4Wr-Pr-9KY"/>
+                                            <outlet property="note" destination="Wug-j0-3tU" id="pZb-JK-EMB"/>
+                                            <outlet property="title" destination="1VW-ZX-Xkk" id="j6e-zg-U1g"/>
+                                            <segue destination="HKr-fA-drF" kind="show" identifier="CellToAddNote" id="Frc-bW-ruS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -43,10 +80,13 @@
                     <navigationItem key="navigationItem" title="Notes" id="zPV-Fq-kvt">
                         <barButtonItem key="rightBarButtonItem" title="Add Note" id="3kS-lH-Wlk">
                             <connections>
-                                <segue destination="HKr-fA-drF" kind="show" id="9L7-h8-Rlv"/>
+                                <segue destination="HKr-fA-drF" kind="show" identifier="NotesToAddNote" id="9L7-h8-Rlv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="notesTableView" destination="gmf-LG-Ec5" id="GhN-bb-82l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,12 +127,25 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Note" id="HLw-ba-1Hc">
                         <rightBarButtonItems>
-                            <barButtonItem title="Save" id="hqW-S6-fBi"/>
+                            <barButtonItem title="Save" id="hqW-S6-fBi">
+                                <connections>
+                                    <action selector="saveTap:" destination="HKr-fA-drF" id="0a0-yr-CTA"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Delete" id="G8K-Ox-kOA">
                                 <color key="tintColor" systemColor="systemRedColor"/>
+                                <connections>
+                                    <action selector="deleteTap:" destination="HKr-fA-drF" id="rbX-wp-t5C"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bodyTextView" destination="Id5-Dg-XCR" id="GBp-se-fO0"/>
+                        <outlet property="deleteButton" destination="G8K-Ox-kOA" id="jwg-br-8er"/>
+                        <outlet property="saveButton" destination="hqW-S6-fBi" id="mkN-bE-NqX"/>
+                        <outlet property="titleTextField" destination="P6o-ua-C0y" id="dnN-Xx-87C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nqj-8x-LB8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,6 +176,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="PWG-bD-WZ2" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fli-n7-bEi">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -135,6 +189,9 @@
             <point key="canvasLocation" x="132" y="116.49175412293854"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Frc-bW-ruS"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

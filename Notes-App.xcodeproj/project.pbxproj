@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,10 @@
 		C49CF0822620F2F20054070A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49CF0812620F2F20054070A /* Assets.xcassets */; };
 		C49CF0852620F2F20054070A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C49CF0832620F2F20054070A /* LaunchScreen.storyboard */; };
 		C49CF08E2620F5E80054070A /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49CF08D2620F5E80054070A /* AddNoteViewController.swift */; };
+		C4A04F6B262A3231003ED481 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A04F6A262A3231003ED481 /* Constants.swift */; };
+		C4A04F6E262A3309003ED481 /* NotesCellStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A04F6D262A3309003ED481 /* NotesCellStack.swift */; };
+		C4A04F71262A336D003ED481 /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A04F70262A336D003ED481 /* APIFunctions.swift */; };
+		C4A04F76262A3402003ED481 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C4A04F75262A3402003ED481 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,9 @@
 		C49CF0842620F2F20054070A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C49CF0862620F2F20054070A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49CF08D2620F5E80054070A /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		C4A04F6A262A3231003ED481 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C4A04F6D262A3309003ED481 /* NotesCellStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCellStack.swift; sourceTree = "<group>"; };
+		C4A04F70262A336D003ED481 /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4A04F76262A3402003ED481 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +68,15 @@
 			children = (
 				C49CF0782620F2F10054070A /* AppDelegate.swift */,
 				C49CF07A2620F2F10054070A /* SceneDelegate.swift */,
+				C4A04F70262A336D003ED481 /* APIFunctions.swift */,
+				C4A04F6D262A3309003ED481 /* NotesCellStack.swift */,
 				C49CF07C2620F2F10054070A /* ViewController.swift */,
 				C49CF08D2620F5E80054070A /* AddNoteViewController.swift */,
 				C49CF07E2620F2F10054070A /* Main.storyboard */,
 				C49CF0812620F2F20054070A /* Assets.xcassets */,
 				C49CF0832620F2F20054070A /* LaunchScreen.storyboard */,
 				C49CF0862620F2F20054070A /* Info.plist */,
+				C4A04F6A262A3231003ED481 /* Constants.swift */,
 			);
 			path = "Notes-App";
 			sourceTree = "<group>";
@@ -86,6 +97,9 @@
 			dependencies = (
 			);
 			name = "Notes-App";
+			packageProductDependencies = (
+				C4A04F75262A3402003ED481 /* Alamofire */,
+			);
 			productName = "Notes-App";
 			productReference = C49CF0752620F2F10054070A /* Notes-App.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +127,9 @@
 				Base,
 			);
 			mainGroup = C49CF06C2620F2F10054070A;
+			packageReferences = (
+				C4A04F74262A3402003ED481 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = C49CF0762620F2F10054070A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,6 +157,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4A04F6E262A3309003ED481 /* NotesCellStack.swift in Sources */,
+				C4A04F6B262A3231003ED481 /* Constants.swift in Sources */,
+				C4A04F71262A336D003ED481 /* APIFunctions.swift in Sources */,
 				C49CF08E2620F5E80054070A /* AddNoteViewController.swift in Sources */,
 				C49CF07D2620F2F10054070A /* ViewController.swift in Sources */,
 				C49CF0792620F2F10054070A /* AppDelegate.swift in Sources */,
@@ -345,6 +365,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C4A04F74262A3402003ED481 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C4A04F75262A3402003ED481 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4A04F74262A3402003ED481 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C49CF06D2620F2F10054070A /* Project object */;
 }
